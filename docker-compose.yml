@@ -12,7 +12,7 @@ services:
     - '127.0.0.1:8125:8125/udp'
 
   influxdb:
-    image: influxdb:1.8-alpine
+    image: influxdb:2.6-alpine
     env_file: configuration.env
     ports:
       - '127.0.0.1:8086:8086'
@@ -21,7 +21,7 @@ services:
       - influxdb_data:/var/lib/influxdb
 
   grafana:
-    image: grafana/grafana:8.0.2
+    image: grafana/grafana:8.2.6
     depends_on:
       - influxdb
     env_file: configuration.env
